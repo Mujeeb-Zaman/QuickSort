@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorted Array</title>
+</head>
+<body>
+    <h2>Sort Number Array Using QuickSort</h2>
+    <script>
+    function QuickSort(array) {
+        if (array.length <= 1) {
+            return array;
+        } 
+        else {
+            let pivot = array.pop();
+            let left = [];
+            let right = [];
+            let newArray = [];
+            let length = array.length;
+
+        for(var i = 0; i < length; i++) {
+            if (array[i] <= pivot) {
+            left.push(array[i]);
+        } 
+            else {
+            right.push(array[i]);
+        }
+        }
+            return newArray.concat(QuickSort(left), pivot, QuickSort(right));
+        }    
+    }
+        const initial = [3, 0, 2, 5, -1, 4, 1, 10, 23, 15, 20, 12];
+        document.write("Initial Array: " + initial + "<br>");
+        const sorted = QuickSort(initial);
+        document.write("Sorted Array: " + sorted);
+    </script>
+</body>
+</html>
